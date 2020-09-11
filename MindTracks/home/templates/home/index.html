@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
-    <
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>MindTracks</title>
   </head>
 
@@ -46,8 +46,24 @@
         <h1 class ="text-center text-dark"> Welcome to MindTracks</h1>
         <h3 class ="text-center text-secondary"> Would you like to use MindTracks to improve mood or for activity level? </h3>
 
+    <!-- placeholders for creating buttons -->
+    <div id="twoButtons">
+      <div class="btn-group btn-group-toggle container" data-toggle="buttons" id="selectButtons">
+        <label class="btn btn-secondary btn-light btn-lg">
+          <input type="radio" name="options" id="mood" autocomplete="off">MOOD
+        </label>
+        <label class="btn btn-secondary btn-light btn-lg">
+          <input type="radio" name="options" id="activity" autocomplete="off">ACTIVITY
+        </label>
+      </div>
+    </div>
 
+    <!-- placeholders for slider, range, and play button -->
+    <div id="rangeSlider"></div>
+    <div id="range"></div>
+    <div id="playButton"></div>
 
+    <script type="text/javascript" src="index.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

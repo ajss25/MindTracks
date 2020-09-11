@@ -47,3 +47,35 @@ h5 {
   background-color: #fff;
   border: .05rem solid #fff;
 }
+
+div {
+	text-align: center;
+}
+
+.usage {
+	padding-top: 35px;
+}
+
+.btn-secondary {
+	margin: 20px;
+}
+
+#moodSlider, #activitySlider{
+  width: 50%;
+	opacity: 0.8; 
+}
+
+#rangeSlider {
+	padding-top: 20px;
+}
+
+#moodButton, #activityButton {
+	text-align: center;
+	border-radius: 5px;
+	font-size: 70%;
+	display: inline;
+}
+
+#range {
+	display: none;
+}
