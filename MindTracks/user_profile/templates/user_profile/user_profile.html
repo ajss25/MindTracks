@@ -23,7 +23,7 @@
             <a class="nav-link" href="/">Home </a>
           </li>
           <li class="nav-item active">
-            <!-- <a class="nav-link" href="/user_profile">View Profile<span class="sr-only">(current)</span></a> -->
+          <a class="nav-link" href="/user_profile">View Profile<span class="sr-only">(current)</span></a> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
@@ -46,7 +46,7 @@
     no-repeat; background-size: cover; background-position: center center;">
 {% if user.is_authenticated %}
 
-        <h1 class = "text-center text-secondary">User: ***username***</h1>
+        <h1 class = "text-center text-secondary">User: {{request.user.username}}</h1>
         <h2 class = "text-center text-secondary">Average Mood Rating: ***number***</h2>
        <p> Your Average Mood Rating is calculated based on your answers to the Mood Scale over time. The Mood Scale is 
           from 0 to 7, with 7 being the very happiest! Use Mood Insights to get to know yourself better and recognize patterns. If you want to improve your 
