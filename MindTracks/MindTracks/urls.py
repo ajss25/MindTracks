@@ -3,6 +3,7 @@ from django.urls import path, include
 
 from home.views import index
 from accounts import views as v
+from user_profile import views 
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -14,4 +15,5 @@ urlpatterns = [
     path('', index),
     path('home/', index),
     path('', include('django.contrib.auth.urls')),
+    path('user_profile/', views.user_profile),
 ]
