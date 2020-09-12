@@ -36,10 +36,16 @@ h5 {
   width: 200px;
 }
 
+#subpage {
+  text-align: center;
+  padding-bottom: 1em;
+}
+
 p {
   display: block;
   margin-left: 10%;
   margin-right: 10%;
+  font-size: medium;
 }
 
 .btn {
