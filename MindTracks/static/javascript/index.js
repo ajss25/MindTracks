@@ -23,12 +23,13 @@ function getSlider() {
 // for now, when play button is pressed, it alerts a random playlist based on mood/active and slider
 $(document).on("click", "#moodButton", function() {
 	playlist = getPlaylist('mood')
-	alert('Mood Playlist' + " " + playlist)
+	spotifyWindow(playlist)
+
 })
 
 $(document).on("click", "#activityButton", function() {
 	playlist = getPlaylist('activity')
-	alert('Activity Playlist' + " " + playlist)
+	spotifyWindow(playlist)
 })
 
 // creates and returns a new range slider
@@ -108,19 +109,28 @@ function getPlaylist(plType){
 	return playlists[(plType)][userMood][getRandomInt(3)]
 }
 
+// create embed window
+function spotifyWindow(playlist) {
+    document.getElementById("playButton").innerHTML  =""
+	document.getElementById("rangeSlider").innerHTML = ""
+	document.getElementById("sliderQuestion").innerHTML = ""
+	document.getElementById("playButton").innerHTML = '<iframe src="' + playlist + '"width="300" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'
+
+}
+
 const playlists = {
 	    'mood': {
-	    '0': ["https://open.spotify.com/playlist/37i9dQZF1DWYGZAMYFDM8S","https://open.spotify.com/playlist/37i9dQZF1DWUPAFOWtSz6P", "https://open.spotify.com/playlist/37i9dQZF1DX0611i4oGheJ" ],
-	    '1': ["https://open.spotify.com/playlist/37i9dQZF1DXci7j0DJQgGp", "https://open.spotify.com/playlist/37i9dQZF1DWUvHZA1zLcjW", "https://open.spotify.com/playlist/37i9dQZF1DWU0ScTcjJBdj"],
-	    '2': ["https://open.spotify.com/playlist/37i9dQZF1DXbIGqYf7WDxP","https://open.spotify.com/playlist/37i9dQZF1DWT7XSlwvR1ar","https://open.spotify.com/playlist/37i9dQZF1DXaXDsfv6nvZ5"],
-	    '3': ["https://open.spotify.com/playlist/37i9dQZF1DX3rxVfibe1L0","https://open.spotify.com/playlist/37i9dQZF1DX7KNKjOK0o75","https://open.spotify.com/playlist/37i9dQZF1DWU13kKnk03AP"],
-	    '4': ["https://open.spotify.com/playlist/37i9dQZF1DWSf2RDTDayIx","https://open.spotify.com/playlist/37i9dQZF1DWSXBu5naYCM9","https://open.spotify.com/playlist/37i9dQZF1DX2SK4ytI2KAZ "]
+	    '0': ["https://open.spotify.com/embed/playlist/37i9dQZF1DWYGZAMYFDM8S","https://open.spotify.com/embed/playlist/37i9dQZF1DWUPAFOWtSz6P", "https://open.spotify.com/embed/playlist/37i9dQZF1DX0611i4oGheJ" ],
+	    '1': ["https://open.spotify.com/embed/playlist/37i9dQZF1DXci7j0DJQgGp", "https://open.spotify.com/embed/playlist/37i9dQZF1DWUvHZA1zLcjW", "https://open.spotify.com/embed/playlist/37i9dQZF1DWU0ScTcjJBdj"],
+	    '2': ["https://open.spotify.com/embed/playlist/37i9dQZF1DXbIGqYf7WDxP","https://open.spotify.com/embed/playlist/37i9dQZF1DWT7XSlwvR1ar","https://open.spotify.com/embed/playlist/37i9dQZF1DXaXDsfv6nvZ5"],
+	    '3': ["https://open.spotify.com/embed/playlist/37i9dQZF1DX3rxVfibe1L0","https://open.spotify.com/embed/playlist/37i9dQZF1DX7KNKjOK0o75","https://open.spotify.com/embed/playlist/37i9dQZF1DWU13kKnk03AP"],
+	    '4': ["https://open.spotify.com/embed/playlist/37i9dQZF1DWSf2RDTDayIx","https://open.spotify.com/embed/playlist/37i9dQZF1DWSXBu5naYCM9","https://open.spotify.com/embed/playlist/37i9dQZF1DX2SK4ytI2KAZ "]
 	    },
 	    'activity': {
-	    '0': ["https://open.spotify.com/playlist/37i9dQZF1DX9uKNf5jGX6m ","https://open.spotify.com/playlist/37i9dQZF1DXdVyc8LtLi96", "https://open.spotify.com/playlist/37i9dQZF1DX7R7Bjxm48PR" ],
-	    '1': ["https://open.spotify.com/playlist/37i9dQZF1DWTofcvJ2Dvma", "https://open.spotify.com/playlist/37i9dQZF1DX3PKEfo9uS5R", "https://open.spotify.com/playlist/37i9dQZF1DWXUtxBFupUW9"],
-	    '2': ["https://open.spotify.com/playlist/37i9dQZF1DXaRL7xbcDl7X","https://open.spotify.com/playlist/37i9dQZF1DWUxdwkOJZYCJ","https://open.spotify.com/playlist/37i9dQZF1DX9BXb6GsGCLl "],
-	    '3': ["https://open.spotify.com/playlist/37i9dQZF1DX70RN3TfWWJh","https://open.spotify.com/playlist/37i9dQZF1DXdMm3yYbD7IO ","https://open.spotify.com/playlist/37i9dQZF1DXadOVCgGhS7j"],
-	    '4': ["https://open.spotify.com/playlist/37i9dQZF1DX8gmkqVvLjKg","https://open.spotify.com/playlist/37i9dQZF1DWXTcPFeNCMUP","https://open.spotify.com/playlist/37i9dQZF1DWZYWNM3NfvzJ"]
+	    '0': ["https://open.spotify.com/embed/playlist/37i9dQZF1DX9uKNf5jGX6m ","https://open.spotify.com/embed/playlist/37i9dQZF1DXdVyc8LtLi96", "https://open.spotify.com/embed/playlist/37i9dQZF1DX7R7Bjxm48PR" ],
+	    '1': ["https://open.spotify.com/embed/playlist/37i9dQZF1DWTofcvJ2Dvma", "https://open.spotify.com/embed/playlist/37i9dQZF1DX3PKEfo9uS5R", "https://open.spotify.com/embed/playlist/37i9dQZF1DWXUtxBFupUW9"],
+	    '2': ["https://open.spotify.com/embed/playlist/37i9dQZF1DXaRL7xbcDl7X","https://open.spotify.com/embed/playlist/37i9dQZF1DWUxdwkOJZYCJ","https://open.spotify.com/embed/playlist/37i9dQZF1DX9BXb6GsGCLl "],
+	    '3': ["https://open.spotify.com/embed/playlist/37i9dQZF1DX70RN3TfWWJh","https://open.spotify.com/embed/playlist/37i9dQZF1DXdMm3yYbD7IO ","https://open.spotify.com/embed/playlist/37i9dQZF1DXadOVCgGhS7j"],
+	    '4': ["https://open.spotify.com/embed/playlist/37i9dQZF1DX8gmkqVvLjKg","https://open.spotify.com/embed/playlist/37i9dQZF1DWXTcPFeNCMUP","https://open.spotify.com/embed/playlist/37i9dQZF1DWZYWNM3NfvzJ"]
 	    }
 }
