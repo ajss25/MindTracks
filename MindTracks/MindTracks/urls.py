@@ -4,6 +4,7 @@ from django.urls import path, include
 from home.views import index
 from accounts import views as v
 from user_profile import views 
+from about import views as av
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -16,4 +17,5 @@ urlpatterns = [
     path('home/', index),
     path('', include('django.contrib.auth.urls')),
     path('user_profile/', views.user_profile),
+    path('about/', av.about)
 ]
