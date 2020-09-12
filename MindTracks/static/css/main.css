@@ -36,6 +36,12 @@ h5 {
   width: 200px;
 }
 
+p {
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .btn {
 	outline: #333
 }
@@ -53,6 +59,7 @@ h5 {
 div {
 	text-align: center;
 }
+
 
 .btn-secondary {
 	margin: 20px;
@@ -92,3 +99,4 @@ div {
 #spotifyLink {
   font-weight: bold;
 }
+
