@@ -5,6 +5,7 @@ function getSlider() {
 		let slider = createSlider("moodSlider");
 		addSlider(slider);
 		sliderValue(slider);
+		spotifyLogin();
 		let pressPlay = createButton("moodButton");
 		addButton(pressPlay);
 	}
@@ -13,6 +14,7 @@ function getSlider() {
 		let slider = createSlider("activitySlider");
 		addSlider(slider);
 		sliderValue(slider);
+		spotifyLogin();
 		let pressPlay = createButton("activityButton");
 		addButton(pressPlay);
 	}
@@ -33,13 +35,18 @@ function createSlider(type) {
 	slider.setAttribute("type", "range");
 	slider.setAttribute("id", type);
 	slider.setAttribute("min", "0");
-	slider.setAttribute("max", "6");
-	slider.setAttribute("value", "3");
+	slider.setAttribute("max", "4");
+	slider.setAttribute("value", "2");
 	return slider;
 }
 
 // adds the created slider
 function addSlider(slider) {
+	if (slider.id === "moodSlider") {
+		document.getElementById("sliderQuestion").innerHTML = "On a scale from 1 to 5, from anxious/gloomy to elated, what is your current mood?";
+	} else if (slider.id === "activitySlider") {
+		document.getElementById("sliderQuestion").innerHTML = "On a scale from 1 to 5, from chill to high intensity, what activity level are you looking for?";
+	}
 	let rangeSlider = document.getElementById("rangeSlider");
 	if (rangeSlider.childNodes[0] === undefined) {
 		rangeSlider.appendChild(slider);
@@ -75,3 +82,16 @@ function addButton(pressPlay) {
 		document.getElementById("playButton").appendChild(pressPlay);
 	}
 }
+
+// adds spotify login link
+function spotifyLogin() {
+	if (document.getElementById("spotifyLogin").childNodes[0] === undefined) {
+		document.getElementById("spotifyLogin").innerHTML += "Make sure you are logged into "
+		let spotifyLink = document.createElement("a");
+		spotifyLink.href = "https://accounts.spotify.com/en/login/?continue=https:%2F%2Fwww.spotify.com%2Fapi%2Fgrowth%2Fl2l-redirect&_locale=en-US";
+		spotifyLink.textContent = "Spotify";
+		spotifyLink.target = "_blank";
+		spotifyLink.id = "spotifyLink";
+		document.getElementById("spotifyLogin").appendChild(spotifyLink);
+		}
+	}
