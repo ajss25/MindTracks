@@ -1,9 +1,7 @@
-/*
- * Globals
- */
+.alert {
+  margin-top: 1em
+}
 
-
-/* Links */
 a,
 a:focus,
 a:hover {
@@ -23,6 +21,10 @@ h1 {
   letter-spacing: 6px;
   padding-top: 3em;
   padding-bottom: 3em;
+}
+
+h3 {
+  padding-bottom: 2em;
 }
 
 h5 {

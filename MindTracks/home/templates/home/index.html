@@ -8,37 +8,39 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>MindTracks</title>
+    <title>{% block title %} MindTracks {% endblock %} </title>
   </head>
 
   <body>
     <header>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">MindTracks</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Saved Playlists</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Account </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Sign Out</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      <a class="navbar-brand" href="#">MindTracks</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">View Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Account </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/register">Register </a>
+                <a class="dropdown-item" href="/login">Login</a>
+                <a class="dropdown-item" href="/logout">Sign Out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       <!-- Background Image -->
     <div class="view" style="background-image: url( {% static '/css/unsplash.jpg' %} ); background-repeat: no-repeat; background-size: cover; background-position: center center;">
@@ -57,6 +59,7 @@
       </div>
     </div>
 
+    {% if user.is_authenticated %}
     <!-- placeholders for slider, range, and play button -->
     <div id="sliderQuestion"></div>
     <div id="rangeSlider"></div>
@@ -64,6 +67,10 @@
     <div id="spotifyLogin"></div>
     <div id="playButton"></div>
  
+    {% else %}
+    <div class="alert alert-danger" role="alert"> Oops! Looks like you're not logged in! Login <a href ='/login' class='alert-link'> Here </a> or Register <a href ='/register' class='alert-link'> Here </a> to use this application</h3> </div>
+    {% endif %}
+    
     <script type="text/javascript" src={% static 'javascript/index.js' %}></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
