@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static '/css/main.css' %}" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>MindTracks</title>
+    <title>View Profile</title>
   </head>
 
   <nav class="navbar navbar-expand-lg navbar-dark">
@@ -20,10 +20,10 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="">Home </a>
+            <a class="nav-link" href="/">Home </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/user_profile">View Profile<span class="sr-only">(current)</span></a>
+            <!-- <a class="nav-link" href="/user_profile">View Profile<span class="sr-only">(current)</span></a> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
@@ -41,23 +41,27 @@
     </nav>
 
       <!-- Background Image -->
-    <div class="view" style="background-image: url( {% static '/css/unsplash.jpg' %} ); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-        <h1 class = "text-center text-secondary">Your Average Mood Rating is ***number****</h1>
-    
-        
-        <p> Your Average Mood Rating is calculated based on your answers to the Mood Scale over time. The Mood Scale is 
-          from 0 to 7, with 7 being the very happiest! Use Mood Insights to get to know yourself better and recognize patterns. If you want to improve your 
-          Average Mood Rating beyond MindTracks, consider checking out the article below:
-        </br>
-            <a href="https://tinybuddha.com/blog/30-ways-to-improve-your-mood-when-youre-feeling-down/" target="_blank"><b>30 Ways to Improve Your Mood When You're Feeling Down</b></a>
-        
-        </p>
-    
-                 <p>If you need additional support, help is available! 
-          The National Suicide hotline is free and available 24/7 at 800-273-8255.</p>
-  
-    </div>
 
+    <div class="view" style="background-image: url( {% static '/css/unsplash.jpg' %} ); background-repeat: 
+    no-repeat; background-size: cover; background-position: center center;">
+{% if user.is_authenticated %}
+
+        <h1 class = "text-center text-secondary">User: ***username***</h1>
+        <h2 class = "text-center text-secondary">Average Mood Rating: ***number***</h2>
+       <p> Your Average Mood Rating is calculated based on your answers to the Mood Scale over time. The Mood Scale is 
+          from 0 to 7, with 7 being the very happiest! Use Mood Insights to get to know yourself better and recognize patterns. If you want to improve your 
+          Average Mood Rating beyond MindTracks, consider checking out
+                      <a href="https://tinybuddha.com/blog/30-ways-to-improve-your-mood-when-youre-feeling-down/" target="_blank">
+                        <b>30 Ways to Improve Your Mood When You're Feeling Down</b></a>.
+       </p>
+                 <p><i>If you need additional support, help is available! 
+          The National Suicide hotline is free and available 24/7 at 800-273-8255.</i></p>
+  
+          <h2 class = "text-center text-secondary">Saved Playlists</h2>
+    </div>
+    {% else %}
+    <div class="alert alert-danger" role="alert"> Oops! Looks like you're not logged in! Login <a href ='/login' class='alert-link'> Here </a> or Register <a href ='/register' class='alert-link'> Here </a> to use this application</h3> </div>
+    {% endif %}
  
     <script type="text/javascript" src={% static 'javascript/index.js' %}></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
