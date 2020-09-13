@@ -26,7 +26,7 @@ SECRET_KEY = '&bip^pp7s(6n_s12aa!adj6rmiugl@!dq+7i6hd8_w*!r78jc8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["mind-tracks.herokuapp.com"]
 
 
 # Application definition
