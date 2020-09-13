@@ -53,10 +53,10 @@
 {% if user.is_authenticated %}
 
         <h1 class = "text-secondary" id="subpage">User: {{request.user.username}}
-        </br> 
-              Average Mood Rating: {{request.profile.sum_of_moods}} </h1>
-       <p> Your Average Mood Rating is calculated based on your answers to the Mood Scale over time. The Mood Scale is 
-          from 1 to 5, with 5 being the very happiest! Use Mood Insights to get to know yourself better and recognize patterns.
+          </br> 
+              <strong>Joined Mindtracks: </strong> {{request.user.date_joined}}</h1>
+       <p> The Mood Rating Scale on the homepage allows you to check in with yourself and identify your current state of mind, and 
+         can be used to get to know yourself better and recognize patterns.
         If you want to improve your Average Mood Rating beyond MindTracks, consider checking out 
                       <a href="https://greatist.com/happiness/34-ways-bust-bad-mood-ten-minutes#1" target="_blank">
                         <b>34 Ways to Bust a Bad Mood in 10 Minutes or Less</b></a>.
