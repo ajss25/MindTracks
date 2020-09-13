@@ -6,8 +6,9 @@ function getSlider() {
 		addSlider(slider);
 		sliderValue(slider);
 		spotifyLogin();
-		let pressPlay = createButton("moodButton");
-		addButton(pressPlay);
+		createForm("moodButton");
+//     	let pressPlay = createButton("moodButton");
+//		addButton(pressPlay);
 	}
 
 	document.getElementById("activity").onclick = function() {
@@ -24,6 +25,7 @@ function getSlider() {
 $(document).on("click", "#moodButton", function() {
 	playlist = getPlaylist('mood')
 	spotifyWindow(playlist)
+
 
 })
 
@@ -67,6 +69,31 @@ function sliderValue(slider) {
 		range.innerHTML = this.value;
 	}
 }
+
+// create mood form
+function createForm(type){
+    let new_form = document.createElement("form")
+    new_form.setAttribute("action", "add_user_data/")
+    new_form.setAttribute("method", "POST")
+    new_form.setAttribute("id", "form")
+    let new_button = createButton(type)
+    new_button.setAttribute("type", "submit")
+//    console.log(document.getElementBy(new_form))
+    if (document.getElementById("playButton").childNodes[0] === undefined) {
+		document.getElementById("playButton").appendChild(new_form);
+	} else {
+		document.getElementById("playButton").removeChild(document.getElementById("playButton").childNodes[0]);
+		document.getElementById("playButton").appendChild(new_form);
+    }
+    if (document.getElementById("form").childNodes[0] === undefined) {
+		document.getElementById("form").appendChild(new_button);
+	} else {
+		document.getElementById("form").removeChild(document.getElementById("form").childNodes[0]);
+		document.getElementById("form").appendChild(pressPlay);
+	}
+
+}
+
 
 // creates play button
 function createButton(type) {
