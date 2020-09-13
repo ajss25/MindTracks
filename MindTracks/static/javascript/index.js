@@ -73,11 +73,12 @@ function sliderValue(slider) {
 // create mood form
 function createForm(type){
     let new_form = document.createElement("form")
-    new_form.setAttribute("action", "add_user_data/")
+    new_form.setAttribute("action", "{% url 'play' post.pk %}")
     new_form.setAttribute("method", "POST")
     new_form.setAttribute("id", "form")
     let new_button = createButton(type)
     new_button.setAttribute("type", "submit")
+    new_button.setAttribute("name", "play_button")
 //    console.log(document.getElementBy(new_form))
     if (document.getElementById("playButton").childNodes[0] === undefined) {
 		document.getElementById("playButton").appendChild(new_form);
@@ -93,7 +94,6 @@ function createForm(type){
 	}
 
 }
-
 
 // creates play button
 function createButton(type) {

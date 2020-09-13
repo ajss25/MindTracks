@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .models import Profile
 
@@ -10,6 +10,8 @@ def index(request):
     # print(Profile.objects.all())
     return render(request, 'home/index.html')
 
-def add_user_data(request):
-    print("test")
+def play_view(request, pk):
+    post = get_object_or_404(Profile, id=request.POST.get('play_button'))
+
+    print(Profile.objects.all())
     return request(request, 'home/index.html')

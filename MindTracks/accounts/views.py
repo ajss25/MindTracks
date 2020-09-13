@@ -9,9 +9,8 @@ def register(response):
         form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
-            print('success')
+            Profile.objects.create(username=response.POST['username'], number_of_plays = 0, sum_of_moods = 0)
         return redirect('/home')
-    # print(response.user.username)
     else:
         form = RegisterForm()
         
