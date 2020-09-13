@@ -52,7 +52,7 @@
     no-repeat; background-size: cover; background-position: center center;">
 {% if user.is_authenticated %}
 
-        <h1 class = "text-secondary" id="subpage">User: {{request.user.username}}
+        <h1 class = "text-secondary" id="subpage"><strong>User:</strong> {{request.user.username}}
           </br> 
               <strong>Joined Mindtracks: </strong> {{request.user.date_joined}}</h1>
        <p> The Mood Rating Scale on the homepage allows you to check in with yourself and identify your current state of mind, and 
