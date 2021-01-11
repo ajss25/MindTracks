@@ -11,4 +11,4 @@
 - Utilize the Spotify API to the full extent to let user login without opening a new page, and offer more variety of playlists.  
 
 ## Notes
-- This app was developed by Alex Shin, Jessica Dutton, Dustin Walkup, and Chunho Lee during BeaverHacks, a three-day hackathon hosted by the OSU Hackathon Club at Oregon State University. The event took place September 10 - 13, and the team competed in the New Student Category.  
+- This app was developed by Alex Shin, Jessica Dutton, Dustin Walkup, and Chunho Lee during BeaverHacks, a three-day hackathon hosted by the OSU Hackathon Club at Oregon State University. The event took place September 10 - 13, and the team competed in the New Student Category with the theme "Health".
